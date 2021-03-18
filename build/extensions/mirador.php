@@ -30,7 +30,10 @@ function extensionMirador ($d, $pd)
 				{$mans = listToManifest ($dets);
 				 $wo = '[{
 					"manifestId": "'.$dets[0].'"
-					}]';}
+					}]';
+				 $cats = "\"catalog\": [{\"manifestId\": \"".implode("\"}, {\"manifestId\": \"", $dets)."\"}],";}
+				else
+					{$cats = "";}
       }
     else {
 			// Used to display the JSON used to create a given page for demos
@@ -66,6 +69,7 @@ var myMiradorInstance = Mirador.viewer({
        id: "mirador",
        windows: $wo,
        manifests: $mans,
+       $cats
        $workspace
        });     
      });
